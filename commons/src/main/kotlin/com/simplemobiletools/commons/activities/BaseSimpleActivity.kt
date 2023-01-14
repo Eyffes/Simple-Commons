@@ -93,14 +93,14 @@ abstract class BaseSimpleActivity : AppCompatActivity() {
         }
 
         super.onCreate(savedInstanceState)
-        if (!packageName.startsWith("com.simplemobiletools.", true)) {
+        /*if (!packageName.startsWith("com.simplemobiletools.", true)) {
             if ((0..50).random() == 10 || baseConfig.appRunCount % 100 == 0) {
                 val label = "You are using a fake version of the app. For your own safety download the original one from www.simplemobiletools.com. Thanks"
                 ConfirmationDialog(this, label, positive = R.string.ok, negative = 0) {
                     launchViewIntent("https://play.google.com/store/apps/dev?id=9070296388022589266")
                 }
             }
-        }
+        }*/
     }
 
     @SuppressLint("NewApi")
@@ -622,7 +622,7 @@ abstract class BaseSimpleActivity : AppCompatActivity() {
     }
 
     fun startCustomizationActivity() {
-        if (!packageName.contains("slootelibomelpmis".reversed(), true)) {
+        /*if (!packageName.contains("slootelibomelpmis".reversed(), true)) {
             if (baseConfig.appRunCount > 100) {
                 val label = "You are using a fake version of the app. For your own safety download the original one from www.simplemobiletools.com. Thanks"
                 ConfirmationDialog(this, label, positive = R.string.ok, negative = 0) {
@@ -630,7 +630,7 @@ abstract class BaseSimpleActivity : AppCompatActivity() {
                 }
                 return
             }
-        }
+        }*/
 
         Intent(applicationContext, CustomizationActivity::class.java).apply {
             putExtra(APP_ICON_IDS, getAppIconIDs())
@@ -640,11 +640,11 @@ abstract class BaseSimpleActivity : AppCompatActivity() {
     }
 
     fun handleCustomizeColorsClick() {
-        if (isOrWasThankYouInstalled()) {
+        /*if (isOrWasThankYouInstalled()) {
             startCustomizationActivity()
         } else {
             FeatureLockedDialog(this) {}
-        }
+        }*/
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -657,7 +657,7 @@ abstract class BaseSimpleActivity : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     fun launchChangeAppLanguageIntent() {
-        try {
+        /*try {
             Intent(Settings.ACTION_APP_LOCALE_SETTINGS).apply {
                 data = Uri.fromParts("package", packageName, null)
                 startActivity(this)
@@ -671,13 +671,13 @@ abstract class BaseSimpleActivity : AppCompatActivity() {
             } catch (e: Exception) {
                 showErrorToast(e)
             }
-        }
+        }*/
     }
 
     // synchronous return value determines only if we are showing the SAF dialog, callback result tells if the SD or OTG permission has been granted
     fun handleSAFDialog(path: String, callback: (success: Boolean) -> Unit): Boolean {
         hideKeyboard()
-        return if (!packageName.startsWith("com.simplemobiletools")) {
+        /*return if (!packageName.startsWith("com.simplemobiletools")) {
             callback(true)
             false
         } else if (isShowingSAFDialog(path) || isShowingOTGDialog(path)) {
@@ -686,12 +686,14 @@ abstract class BaseSimpleActivity : AppCompatActivity() {
         } else {
             callback(true)
             false
-        }
+        }*/
+                    callback(true)
+            false
     }
 
     fun handleSAFDialogSdk30(path: String, callback: (success: Boolean) -> Unit): Boolean {
         hideKeyboard()
-        return if (!packageName.startsWith("com.simplemobiletools")) {
+/*        return if (!packageName.startsWith("com.simplemobiletools")) {
             callback(true)
             false
         } else if (isShowingSAFDialogSdk30(path)) {
@@ -700,7 +702,10 @@ abstract class BaseSimpleActivity : AppCompatActivity() {
         } else {
             callback(true)
             false
-        }
+        }*/
+                    callback(true)
+            false
+
     }
 
     fun checkManageMediaOrHandleSAFDialogSdk30(path: String, callback: (success: Boolean) -> Unit): Boolean {
@@ -715,7 +720,7 @@ abstract class BaseSimpleActivity : AppCompatActivity() {
 
     fun handleSAFCreateDocumentDialogSdk30(path: String, callback: (success: Boolean) -> Unit): Boolean {
         hideKeyboard()
-        return if (!packageName.startsWith("com.simplemobiletools")) {
+        /*return if (!packageName.startsWith("com.simplemobiletools")) {
             callback(true)
             false
         } else if (isShowingSAFCreateDocumentDialogSdk30(path)) {
@@ -724,12 +729,15 @@ abstract class BaseSimpleActivity : AppCompatActivity() {
         } else {
             callback(true)
             false
-        }
+        }*/
+                    callback(true)
+            false
+
     }
 
     fun handleAndroidSAFDialog(path: String, callback: (success: Boolean) -> Unit): Boolean {
         hideKeyboard()
-        return if (!packageName.startsWith("com.simplemobiletools")) {
+        /*return if (!packageName.startsWith("com.simplemobiletools")) {
             callback(true)
             false
         } else if (isShowingAndroidSAFDialog(path)) {
@@ -738,7 +746,10 @@ abstract class BaseSimpleActivity : AppCompatActivity() {
         } else {
             callback(true)
             false
-        }
+        }*/
+                    callback(true)
+            false
+
     }
 
     fun handleOTGPermission(callback: (success: Boolean) -> Unit) {

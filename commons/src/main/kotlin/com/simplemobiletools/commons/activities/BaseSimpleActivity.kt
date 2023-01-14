@@ -687,8 +687,8 @@ abstract class BaseSimpleActivity : AppCompatActivity() {
             callback(true)
             false
         }*/
-                    callback(true)
-            false
+        callback(true)
+        return false
     }
 
     fun handleSAFDialogSdk30(path: String, callback: (success: Boolean) -> Unit): Boolean {
@@ -703,8 +703,8 @@ abstract class BaseSimpleActivity : AppCompatActivity() {
             callback(true)
             false
         }*/
-                    callback(true)
-            false
+        callback(true)
+        return false
 
     }
 
@@ -730,8 +730,8 @@ abstract class BaseSimpleActivity : AppCompatActivity() {
             callback(true)
             false
         }*/
-                    callback(true)
-            false
+        callback(true)
+        return false
 
     }
 
@@ -747,9 +747,8 @@ abstract class BaseSimpleActivity : AppCompatActivity() {
             callback(true)
             false
         }*/
-                    callback(true)
-            false
-
+        callback(true)
+        return false
     }
 
     fun handleOTGPermission(callback: (success: Boolean) -> Unit) {
